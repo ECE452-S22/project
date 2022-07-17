@@ -82,5 +82,10 @@ public class PlayerMovement : MonoBehaviour
         {
             hp += 1;
         }
+
+        if (collision.tag == Constants.NUKEPOWERUP_TAG)
+        {
+            hp += 1;
+        }
     }
 }

@@ -14,6 +14,7 @@ public class LevelController : MonoBehaviour
     float bossY = 1600;
     Transform canvas;
     public GameObject hpPower;
+    public GameObject nukePower;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,5 +69,17 @@ public class LevelController : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         GameObject healthPowerup = Instantiate(hpPower, new Vector2(canvas.position.x, canvas.position.y), Quaternion.identity, canvas) as GameObject;
         FindObjectOfType<HealthPowerup>().DestroyPowerup();
+    }
+
+    public void SpawnNukePowerup()
+    {
+        StartCoroutine(WaitAndSpawnNukePowerup());
+    }
+
+    public IEnumerator WaitAndSpawnNukePowerup()
+    {
+        yield return new WaitForSeconds(2.0f);
+        GameObject nukePowerup = Instantiate(nukePower, new Vector2(canvas.position.x, canvas.position.y), Quaternion.identity, canvas) as GameObject;
+        FindObjectOfType<NukePowerup>().DestroyPowerup();
     }
 }

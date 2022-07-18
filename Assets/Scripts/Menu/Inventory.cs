@@ -17,7 +17,6 @@ public class Inventory : MonoBehaviour
         {
             owned = PlayerPrefs.GetString(Constants.SPRITE_OWNED_KEY).ToCharArray();
         }
-        Debug.Log(new string(owned));
 
         int h = 1600;
         for (int i = 0; i < owned.Length; i++)
